@@ -45,7 +45,13 @@ app.get("/scrape", function(req, res) {
         .data("srcset")
       }
       console.log(result)
-      db.Article.create(result)
+      db.Article.update(
+        result,
+        result,
+        {
+          upsert: true
+        }
+      )
         .then(function(dbArticle) {
           console.log(dbArticle);
         })
