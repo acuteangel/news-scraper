@@ -22,7 +22,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
-app.get("/", function(req, res) {
+app.get("/scrape", function(req, res) {
   axios.get("http://www.theonion.com/").then(function(response) {
     var $ = cheerio.load(response.data);
 

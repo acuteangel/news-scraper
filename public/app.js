@@ -10,6 +10,11 @@ $.getJSON("/articles", function(data) {
   }
 });
 
+$("#scrape").on("click",function(){
+  $.get("/scrape").then(function(){
+    location.reload();
+  })
+})
 
 $(document).on("click", ".viewcomments", function() {
   $("#notes").empty();
