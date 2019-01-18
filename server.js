@@ -45,12 +45,11 @@ app.get("/scrape", function(req, res) {
         .data("srcset")
       }
       console.log(result)
+      if (result.summary){
       db.Article.update(
         result,
         result,
-        {
-          upsert: true
-        }
+        {upsert: true}
       )
         .then(function(dbArticle) {
           console.log(dbArticle);
@@ -58,8 +57,8 @@ app.get("/scrape", function(req, res) {
         .catch(function(err) {
           console.log(err);
         });
+      }
     });
-
   });
 });
 
