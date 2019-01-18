@@ -25,7 +25,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 app.get("/scrape", function(req, res) {
   axios.get("http://www.theonion.com/").then(function(response) {
     var $ = cheerio.load(response.data);
-
+    mongoose.connection.db.dropDatabase(function(err, result){})
     $("article").each(function(i, element) {
       var result = {};
 

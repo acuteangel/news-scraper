@@ -1,5 +1,5 @@
 $.getJSON("/articles", function(data) {
-  for (var i = data.length-1; i >= 0; i--) {
+  for (var i = 0; i < data.length; i++) {
     $("#articles").append("<h1><a onclick href='"+data[i].link+"'>" + data[i].title + "</a><br></h1>");
     if (data[i].summary.charAt(0)=="h" && data[i].summary.charAt(1)=="t"){
       $("#articles").append("<img src=" +data[i].summary+"><br>")
